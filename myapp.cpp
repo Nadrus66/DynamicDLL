@@ -23,13 +23,13 @@ int _tmain(int argc, _TCHAR* argv[])
 		system("pause");
 		return 1;
 	}
-    if (hDll != NULL)
-    {
+	else
+	{
 		cout << "Library was loaded\n";
 	}
 	PMyName MyName = (PMyName)GetProcAddress(hDll, "MyName");
 	if (MyName == NULL) {
-		cout << "NEuspeh\n";
+		cout << "Neuspeh\n";
 	}
 	(*MyName)();
 	system("pause");
