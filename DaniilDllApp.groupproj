@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{213D21C7-9E4A-410B-B0E6-A2D46658124B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DaniilDLL.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DaniilAPP.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DaniilDLL">
+        <MSBuild Projects="DaniilDLL.cbproj"/>
+    </Target>
+    <Target Name="DaniilDLL:Clean">
+        <MSBuild Projects="DaniilDLL.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DaniilDLL:Make">
+        <MSBuild Projects="DaniilDLL.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="DaniilAPP">
+        <MSBuild Projects="DaniilAPP.cbproj"/>
+    </Target>
+    <Target Name="DaniilAPP:Clean">
+        <MSBuild Projects="DaniilAPP.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DaniilAPP:Make">
+        <MSBuild Projects="DaniilAPP.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DaniilDLL;DaniilAPP"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DaniilDLL:Clean;DaniilAPP:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DaniilDLL:Make;DaniilAPP:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
