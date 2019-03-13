@@ -13,6 +13,7 @@
 using namespace std;
 
 typedef int (__stdcall* PMyName)();
+typedef int (__stdcall* PMyGroup)();
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -28,10 +29,12 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "Library was loaded\n";
 	}
 	PMyName MyName = (PMyName)GetProcAddress(hDll, "MyName");
+	PMyGroup MyGroup = (PMyGroup)GetProcAddress(hDll, "MyGroup");
 	if (MyName == NULL) {
 		cout << "NEuspeh\n";
 	}
 	(*MyName)();
+	(*MyGroup)();
 	system("pause");
 	return 0;
 }

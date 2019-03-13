@@ -7,7 +7,12 @@
 using namespace std;
 
 int MyName(){
-	cout << "Suraev Daniil RI-541216" << endl;
-	return  1;
+	cout << "Suraev Daniil\n";
+	return 1;
+}
+
+int MyGroup(){
+	cout << "RI-541216\n";
+	return 1;
 }
 
